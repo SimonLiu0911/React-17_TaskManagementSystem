@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import ProjectList from "screens/project-list";
 
 const App = () => {
   return (
     <div>
-      App..
+      <ProjectList />
     </div>
   );
-}
+};
 
 export default App;
