@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "json-server": "json-server __json_server_mock__/db.json --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "i": "^0.3.7",
+    "json-server": "^0.17.0"
   }
 }
