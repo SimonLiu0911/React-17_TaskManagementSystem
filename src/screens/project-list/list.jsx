@@ -1,7 +1,7 @@
 import React from "react";
 
 const List = (props) => {
-  const { list } = props;
+  const { list, users } = props;
   return (
     <table>
       <thead>
@@ -12,9 +12,9 @@ const List = (props) => {
       </thead>
       <tbody>
         {list.map((project) => (
-          <tr>
+          <tr key={project.id}>
             <td>{project.name}</td>
-            <td>{project.personName}</td>
+            <td>{users.find(user => user.id === project.personId)?.name || "未知"}</td>
           </tr>
         ))}
       </tbody>

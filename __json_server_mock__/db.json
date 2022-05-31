@@ -1,1 +1,28 @@
-{}
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Mike"
+    },
+    {
+      "id": 2,
+      "name": "Bob"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "騎手管理",
+      "personId": 1,
+      "organization": "外賣組",
+      "created": 1604989757139
+    },
+    {
+      "id": 2,
+      "name": "商品管理",
+      "personId": 2,
+      "organization": "內用組",
+      "created": 1604989757139
+    }
+  ]
+}
