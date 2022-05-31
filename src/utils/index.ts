@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 
-export const isFalsy = (value) => value === 0 ? false : !value
+export const isFalsy = (value: any) => value === 0 ? false : !value
 
 // 在一個函數裡，改變傳入的對象是不好的
-export const cleanObject = (object) => {
+export const cleanObject = (object: object) => {
   const result = { ...object };
   Object.keys(object).forEach(key => {
+    // @ts-ignore
     const value = object[key];
     if (isFalsy(value)) {
+      // @ts-ignore
       delete result[key]
     }
   })
   return result
 }
 
-export const useMount = (callback) => {
+export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
   }, [])
@@ -32,7 +34,8 @@ export const useMount = (callback) => {
 //   }
 // }
 
-export const useDebounce = (value, delay) => {
+// delay 後面?代表可傳可不傳
+export const useDebounce = (value: unknown, delay?: number): any => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
