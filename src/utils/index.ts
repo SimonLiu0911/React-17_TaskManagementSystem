@@ -35,7 +35,7 @@ export const useMount = (callback: () => void) => {
 // }
 
 // delay 後面?代表可傳可不傳
-export const useDebounce = (value: unknown, delay?: number): any => {
+export const useDebounce = <V>(value: V, delay?: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {

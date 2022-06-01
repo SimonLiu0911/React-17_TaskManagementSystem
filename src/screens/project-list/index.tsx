@@ -9,6 +9,12 @@ const apiUrl = process.env.REACT_APP_URL;
 const Index = () => {
   const [list, setList] = useState([]);
   const [users, setUsers] = useState([]);
+
+//   interface T {
+// 	  personId: string;
+// 	  name: string;
+//   }
+
   const [param, setParam] = useState({
     personId: "",
     name: "",
