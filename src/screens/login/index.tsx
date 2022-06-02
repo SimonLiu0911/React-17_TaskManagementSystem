@@ -4,7 +4,7 @@ const apiUrl = process.env.REACT_APP_URL;
 
 const LoginScreen = () => {
 
-	const login = (param: { username: string, password: string }) => {
+	const login = (param: { email: string, password: string }) => {
 		fetch(`${apiUrl}/login`, {
 			method: 'POST',
 			headers: {
@@ -14,7 +14,6 @@ const LoginScreen = () => {
 		}).then(
 			async (response: Response) => {
 				if (response.ok) {
-					console.log(response);
 					// setList(await response.json())
 				}
 			}
@@ -23,14 +22,14 @@ const LoginScreen = () => {
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const username = (event.currentTarget.elements[0] as HTMLFormElement).value;
+		const email = (event.currentTarget.elements[0] as HTMLFormElement).value;
 		const password = (event.currentTarget.elements[1] as HTMLFormElement).value;
-		login({username, password})
+		login({ email, password })
 	}
 	return <form onSubmit={handleSubmit}>
 		<div>
-			<label htmlFor="username">用戶名</label>
-			<input id="username" type="text" />
+			<label htmlFor="email">用戶名</label>
+			<input id="email" type="text" />
 		</div>
 		<div>
 			<label htmlFor="password">密碼</label>
