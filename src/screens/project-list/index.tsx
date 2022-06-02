@@ -30,7 +30,7 @@ const Index = () => {
   }, [debouncedParam]);
 
   useMount(() => {
-    fetch(`${apiUrl}/users`).then(async (response) => {
+    fetch(`${apiUrl}/projectUsers`).then(async (response) => {
       if (response.ok) {
         setUsers(await response.json());
       }
