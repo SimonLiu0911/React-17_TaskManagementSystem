@@ -1,8 +1,10 @@
 import React, { FormEvent } from 'react';
+import { useAuth } from "../../context/auth-context";
 
 const apiUrl = process.env.REACT_APP_URL;
 
 const LoginScreen = () => {
+	// const { login, user } = useAuth()
 
 	const login = (param: { email: string, password: string }) => {
 		fetch(`${apiUrl}/login`, {
@@ -14,6 +16,7 @@ const LoginScreen = () => {
 		}).then(
 			async (response: Response) => {
 				if (response.ok) {
+					console.log(response);
 					// setList(await response.json())
 				}
 			}
@@ -27,6 +30,7 @@ const LoginScreen = () => {
 		login({ email, password })
 	}
 	return <form onSubmit={handleSubmit}>
+		{/* 登入成功，用戶名: {user?.name} */}
 		<div>
 			<label htmlFor="email">用戶名</label>
 			<input id="email" type="text" />
