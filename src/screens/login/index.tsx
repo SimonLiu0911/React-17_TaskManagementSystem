@@ -4,35 +4,37 @@ import { useAuth } from "../../context/auth-context";
 const apiUrl = process.env.REACT_APP_URL;
 
 const LoginScreen = () => {
-	// const { login, user } = useAuth()
+	const { login, user } = useAuth();
+	console.log(user);
+	
 
-	const login = (param: { email: string, password: string }) => {
-		fetch(`${apiUrl}/login`, {
-			method: 'POST',
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(param)
-		}).then(
-			async (response: Response) => {
-				if (response.ok) {
-					console.log(response);
-					// setList(await response.json())
-				}
-			}
-		)
-	}
+	// const login = (param: { username: string, password: string }) => {
+	// 	fetch(`${apiUrl}/login`, {
+	// 		method: 'POST',
+	// 		headers: {
+	// 			"Content-Type": "application/json"
+	// 		},
+	// 		body: JSON.stringify(param)
+	// 	}).then(
+	// 		async (response: Response) => {
+	// 			if (response.ok) {
+	// 				console.log(response);
+	// 				// setList(await response.json())
+	// 			}
+	// 		}
+	// 	)
+	// }
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const email = (event.currentTarget.elements[0] as HTMLFormElement).value;
+		const username = (event.currentTarget.elements[0] as HTMLFormElement).value;
 		const password = (event.currentTarget.elements[1] as HTMLFormElement).value;
-		login({ email, password })
+		login({ username, password })
 	}
 	return <form onSubmit={handleSubmit}>
-		{/* 登入成功，用戶名: {user?.name} */}
+		登入成功，用戶名: {user?.name}
 		<div>
-			<label htmlFor="email">用戶名</label>
+			<label htmlFor="username">用戶名</label>
 			<input id="email" type="text" />
 		</div>
 		<div>

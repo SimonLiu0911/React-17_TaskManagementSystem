@@ -11,7 +11,7 @@ export const handleUserResponse = ({ user }: { user: User }) => {
 	return user;
 };
 
-export const login = (data: { email: string, password: string }):any => {
+export const login = (data: { username: string, password: string }): any => {
 	fetch(`${apiUrl}/login`, {
 		method: 'POST',
 		headers: {
@@ -29,7 +29,7 @@ export const login = (data: { email: string, password: string }):any => {
 	)
 }
 
-export const register = (data: { email: string, password: string }):any => {
+export const register = (data: { username: string, password: string }): any => {
 	fetch(`${apiUrl}/register`, {
 		method: 'POST',
 		headers: {
