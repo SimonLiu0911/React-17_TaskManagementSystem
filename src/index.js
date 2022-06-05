@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProviders } from "./context";
+import "antd/dist/antd.less";
 
 ReactDOM.render(
   <React.StrictMode>
