@@ -5,8 +5,7 @@ const apiUrl = process.env.REACT_APP_URL;
 
 const LoginScreen = () => {
 	const { login, user } = useAuth();
-	console.log(user);
-	
+
 
 	// const login = (param: { username: string, password: string }) => {
 	// 	fetch(`${apiUrl}/login`, {
@@ -27,14 +26,19 @@ const LoginScreen = () => {
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		const username = (event.currentTarget.elements[0] as HTMLFormElement).value;
+		const email = (event.currentTarget.elements[0] as HTMLFormElement).value;
 		const password = (event.currentTarget.elements[1] as HTMLFormElement).value;
-		login({ username, password })
+		console.log(user);
+		login({ email, password })
 	}
 	return <form onSubmit={handleSubmit}>
-		登入成功，用戶名: {user?.name}
+		{
+			user ? <div>
+				登入成功，用戶名: {user?.email}
+			</div> : null
+		}
 		<div>
-			<label htmlFor="username">用戶名</label>
+			<label htmlFor="email">用戶名</label>
 			<input id="email" type="text" />
 		</div>
 		<div>

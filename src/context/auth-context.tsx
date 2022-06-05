@@ -3,7 +3,7 @@ import * as auth from "auth-provider";
 import { User } from "../screens/project-list/searchPanel";
 
 interface AuthForm {
-	username: string;
+	email: string;
 	password: string;
 }
 
@@ -17,10 +17,15 @@ AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
 	const [user, setUser] = useState<User | null>(null);
-	const login = (form: AuthForm) => auth.login(form).then((user: any) => setUser(user))
+	const login = (form: AuthForm) => {
+		return auth.login(form).then(({email}: {email: any}) => {
+			console.log('trigger'); // 沒有觸發
+			setUser(email)
+		})
+	}
 	const register = (form: AuthForm) => auth.register(form).then((user: any) => setUser(user))
 	const logout = () => auth.logout().then(() => setUser(null))
-
+	
 
 	return <AuthContext.Provider children={children} value={{ user, login, register, logout }} />
 }
