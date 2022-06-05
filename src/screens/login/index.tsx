@@ -12,7 +12,7 @@ const LoginScreen = () => {
 			<Input id="username" type="text" />
 		</Form.Item>
 		<Form.Item name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
-			<label htmlFor="password">password</label>
+			<label htmlFor="password">Password</label>
 			<Input id="password" type="password" />
 		</Form.Item>
 		<Form.Item>

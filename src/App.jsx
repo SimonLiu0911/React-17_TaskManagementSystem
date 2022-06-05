@@ -7,6 +7,8 @@ import { Card, Divider } from "antd";
 import "App.css";
 import styled from "@emotion/styled";
 
+import {AuthenticatedApp} from "authenticated-app"
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,7 +18,7 @@ const Container = styled.div`
 
 const ShadowCard = styled(Card)`
   width: 40rem;
-  min-height: 56rem;
+  min-height: 35rem;
   padding: 3.2rem 4rem;
   border-radius: 0.3rem;
   box-sizing: border-box;
@@ -28,15 +30,18 @@ const App = () => {
   const [isRegister, setIsRegister] = useState(false);
 
   return (
-    <Container>
-      <ShadowCard>
-        {isRegister ? <ProjectList /> : <LoginScreen />}
-        <Divider />
-        <a href="#" onClick={() => setIsRegister(!isRegister)}>
-          切換到{isRegister ? "Login" : "Register"}
-        </a>
-      </ShadowCard>
-    </Container>
+	  <>
+	  	<AuthenticatedApp></AuthenticatedApp>
+	  </>
+    // <Container>
+    //   <ShadowCard>
+    //     {isRegister ? <ProjectList /> : <LoginScreen />}
+    //     <Divider />
+    //     <a href="#" onClick={() => setIsRegister(!isRegister)}>
+    //       切換到{isRegister ? "Login" : "Register"}
+    //     </a>
+    //   </ShadowCard>
+    // </Container>
   );
 };
 
