@@ -1,5 +1,7 @@
 import React from "react";
 import { User } from "./searchPanel";
+import { Table } from "antd";
+import * as dayjs from 'dayjs'
 
 interface Project {
   id: string;
@@ -7,6 +9,7 @@ interface Project {
   personId: string;
   pin: boolean;
   organization: string;
+  created: number;
 }
 
 interface ListProps {
@@ -18,22 +21,45 @@ const List = (props: ListProps) => {
   const { list, users } = props;
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>名稱</th>
-          <th>負責人</th>
-        </tr>
-      </thead>
-      <tbody>
-        {list.map((project) => (
-          <tr key={project.id}>
-            <td>{project.name}</td>
-            <td>{users.find(user => user.id === project.personId)?.name || "未知"}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <Table
+      pagination={false}
+      columns={[
+        {
+          title: "名稱",
+          dataIndex: "name",
+          // sorter: (a, b) => a.name.localCompare(b.name)
+        },
+        {
+          title: "部門",
+          dataIndex: "organization"
+        },
+        {
+          title: "負責人",
+          render(value, project) {
+            return (
+              <span>
+                {
+                  users.find((user: User) => user.id === project.personId)?.name || "未知"
+                }
+              </span>
+            )
+          }
+        },
+        // {
+        //   title: "創建時間",
+        //   dataIndex: "created",
+        //   render(value, project) {
+        //     return (
+        //       <span>
+        //         {project.created ? dayjs(new Date(project.created)).format('YYYY-MM-DD') : '無'}
+        //       </span>
+        //     )
+        //   }
+        // }
+      ]}
+      dataSource={list}
+    >
+    </Table>
   );
 };
 

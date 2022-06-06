@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import ProjectList from "screens/project-list";
 import { Row } from "components/lib";
+import { Button } from "antd";
 
 const Container = styled.div`
 display: grid;
@@ -16,6 +17,8 @@ grid-gap: 1rem;
 const Header = styled(Row)`
 grid-area: header;
 flex-direction: row;
+box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+z-index: 1;
 `
 const HeaderLeft = styled(Row)``
 const HeaderRight = styled.div``
@@ -51,7 +54,7 @@ export const AuthenticatedApp = () => {
 					<h3>用戶</h3>
 				</HeaderLeft>
 				<HeaderRight>
-					<button>登出</button>
+					<Button>登出</Button>
 				</HeaderRight>
 			</Header>
 			{/* <Nav>Nav</Nav> */}
